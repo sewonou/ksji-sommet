@@ -1,0 +1,33 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Formulaire d'enregistrement</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {{ form_start(form) }}
+            <div class="modal-body">
+
+                    {{ form_row(form.firstName) }}
+                    {{ form_row(form.lastName) }}
+                    {{ form_row(form.gender) }}
+                    {{ form_row(form.address) }}
+                    {{ form_row(form.country) }}
+                    {{ form_row(form.board) }}
+                    {{ form_row(form.local) }}
+                    {{ form_row(form.category) }}
+                    {{ form_row(form.email) }}
+                    {{ form_row(form.hash) }}
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<header id="header">
+    <div class="container">
+
+        <div id="logo" class="pull-left">
+            <!-- Uncomment below if you prefer to use a text logo -->
+            <!-- <h1><a href="#main">C<span>o</span>nf</a></h1>-->
+            <a href="#intro" class="scrollto"><img class="avatar avatar-medium" src="{{ asset('img/logo.jpeg') }}" alt="" title=""></a>
+        </div>
+
+        <nav id="nav-menu-container">
+            <ul class="nav-menu">
+                <li class="menu-active"><a href="{{ path('home') }}#intro">Home</a></li>
+                <li><a href="{{ path('home') }}#about">About</a></li>
+                <li><a href="{{ path('home') }}#speakers">Speakers</a></li>
+                <li><a href="{{ path('home') }}#schedule">Schedule</a></li>
+                <li><a href="{{ path('home') }}#venue">Venue</a></li>
+                <li><a href="{{ path('home') }}#hotels">Hotels</a></li>
+                <li><a href="{{ path('home') }}#gallery">Gallery</a></li>
+                <li><a href="{{ path('home') }}#supporters">Sponsors</a></li>
+                <li><a href="{{ path('home') }}#contact">Contact</a></li>
+                {%  if app.user %}
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="accountDropdownLink">
+                        <img src="{{ app.user.email }}" alt="Avatar de {{ app.user.email}}" class="avatar avatar-mini">
+                        Test
+                    </a>
+                    <div class="dropdown-menu drowpdown-menu-right" aria-labelledby="accountDropdownLink">
+                        <a href="#" class="dropdown-item">Créer une aannonce</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">Mon compte</a>
+                        <a href="#" class="dropdown-item">Mes réservations</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="{{ path('account_logout') }}" class="dropdown-item">Déconnexion</a>
+                    </div>
+                </li>
+
+                {% else %}
+                <li class="buy-tickets"><a href="{{ path('account_login') }}">Se connecter</a></li>
+                {% endif %}
+
+
+            </ul>
+        </nav><!-- #nav-menu-container -->
+    </div>
+</header><!-- #header -->
+{% for label, messages in app.flashes %}
+    <div class="container">
+        <div class="alert alert-{{ label }}">
+            {% for message in messages %}
+                <p>{{ message | raw }}</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endfor %}

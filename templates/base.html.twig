@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>KSJI - Sommet Ouest Africain:</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="keywords">
+        <meta content="" name="description">
+
+        <!-- Favicons -->
+        <link href="{{ asset('test/img/favicon.png') }}" rel="icon">
+        <link href="{{ asset('test/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+
+        <!-- Bootstrap CSS File -->
+        <link href="{{ asset('test/lib/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+        <!-- Libraries CSS Files -->
+        <link href="{{ asset('test/lib/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('test/lib/animate/animate.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('test/lib/venobox/venobox.css') }}" rel="stylesheet">
+        <link href="{{ asset('test/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+
+        <!-- Main Stylesheet File -->
+        {% block stylesheets %}{% endblock %}
+        <link href="{{ asset('test/css/style.css') }}" rel="stylesheet">
+        <link href="{{ asset('test/custom.css') }}" rel="stylesheet">
+    </head>
+
+    <body>
+        {{ include('partials/header.html.twig') }}
+        {% block body %}{% endblock %}
+        {{ include('partials/footer.html.twig') }}
+        <!-- JavaScript Libraries -->
+        <script src="{{ asset('test/lib/jquery/jquery.min.js') }}"></script>
+        <script src="{{ asset('js/jquery-3.4.1.slim.min.js') }}"></script>
+        <script src="{{ asset('test/lib/jquery/jquery-migrate.min.js') }}"></script>
+        <script src="{{ asset('test/lib/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('js/popper.min.js') }}"></script>
+        <script src="{{ asset('test/lib/easing/easing.min.js') }}"></script>
+        <script src="{{ asset('test/lib/superfish/hoverIntent.js') }}"></script>
+        <script src="{{ asset('test/lib/superfish/superfish.min.js') }}"></script>
+        <script src="{{ asset('test/lib/wow/wow.min.js') }}"></script>
+        <script src="{{ asset('test/lib/venobox/venobox.min.js') }}"></script>
+        <script src="{{ asset('test/lib/owlcarousel/owl.carousel.min.js') }}"></script>
+
+        <!-- Contact Form JavaScript File -->
+        <script src="contactform/contactform.js"></script>
+
+        {% block javascripts %}{% endblock %}
+        <!-- Template Main Javascript File -->
+        <script src="{{ asset('test/js/main.js') }}"></script>
+    </body>
+
+</html>
