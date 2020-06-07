@@ -1,0 +1,23 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %} Question{% endblock %}
+
+{% block body %}
+    {{ include('admin/faq/_form.html.twig', {title  : 'Modifier la question'}) }}
+    {{ include('admin/faq/_content.html.twig') }}
+{% endblock %}
+{% block stylesheets %}
+    <!-- DataTables CSS -->
+    <link href="{{ asset('back/vendor/datatables-plugins/dataTables.bootstrap.css') }}" rel="stylesheet">
+
+    <!-- DataTables Responsive CSS -->
+    <link href="{{ asset('back/vendor/datatables-responsive/dataTables.responsive.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block javascripts %}
+    <!-- DataTables JavaScript -->
+    <script src="{{ asset('back/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('back//vendor/datatables-plugins/dataTables.bootstrap.min.js') }}"></script>
+    <script src="{{ asset('back/vendor/datatables-responsive/dataTables.responsive.js') }}"></script>
+
+{% endblock %}

@@ -18,25 +18,12 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder)
+    public function index()
     {
 
-        $participant = new Participant();
-        $form = $this->createForm(ParticipantType::class, $participant);
-        $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()){
-            $this->addFlash(
-                'success',
-                "Vous avez été enregistrer avec succès. un mail de confirmation vous sera envoyé."
-            );
-            $participant->setActive(false);
-            $hash = $encoder->encodePassword($participant, $participant->getHash());
-            $participant->setHash($hash);
-            $manager->persist($participant);
-            $manager->flush();
-        }
+
         return $this->render('home/index.html.twig', [
-            'form' => $form->createView(),
+
         ]);
     }
 

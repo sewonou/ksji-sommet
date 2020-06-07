@@ -6,7 +6,9 @@ use App\Repository\ParticipantRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=ParticipantRepository::class)
@@ -81,6 +83,12 @@ class Participant implements UserInterface
     private $image;
 
     /**
+     * @Vich\UploadableField(mapping="image", fileNameProperty="image")
+     * @var File|null
+     */
+    private $imageFile;
+
+    /**
      * @ORM\Column(type="boolean", nullable=true)
      */
     private $active;
@@ -94,6 +102,11 @@ class Participant implements UserInterface
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $updateAt;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $slug;
 
     public function __construct()
     {
@@ -127,6 +140,11 @@ class Participant implements UserInterface
         $this->lastName = $lastName;
 
         return $this;
+    }
+
+    public function getFullName()
+    {
+        return $this->firstName .' '. strtoupper($this->lastName) ;
     }
 
     public function getCountry(): ?string
@@ -294,6 +312,27 @@ class Participant implements UserInterface
         return $this;
     }
 
+    /**
+     * @param File | \Symfony\Component\HttpFoundation\File\UploadedFile | null $imageFile
+     * @return  void
+     */
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        if (null !== $imageFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updateAt = new \DateTimeImmutable();
+        }
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+
     public function getActive(): ?bool
     {
         return $this->active;
@@ -326,6 +365,18 @@ class Participant implements UserInterface
     public function setUpdateAt(?\DateTimeInterface $updateAt): self
     {
         $this->updateAt = $updateAt;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(?string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }

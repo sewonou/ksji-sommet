@@ -8,6 +8,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -84,6 +85,11 @@ class ParticipantType extends ApplicationType
                 PasswordType::class,
                 $this->getConfiguration('Mot de passe', "Votre mot de passe ...")
                 )
+            ->add(
+                'imageFile',
+                FileType::class,
+                $this->getConfiguration('Photo', "Votre photo ...")
+            )
 
         ;
     }

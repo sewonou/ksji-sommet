@@ -44,7 +44,7 @@
                         {% endif %}
                     </div>
                     <div class="panel-body">
-                        <form role="form">
+                        <form role="form" action="{{ path('admin_account_login') }}" method="post">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="E-mail" name="_username" type="email" autofocus value="{{ username }}">

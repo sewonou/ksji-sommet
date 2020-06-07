@@ -18,8 +18,11 @@ class AdminController extends AbstractController
 
         ]);
     }
+
     /**
      * @Route("admin/login", name="admin_account_login")
+     * @param AuthenticationUtils $utils
+     * @return Response
      */
     public function login(AuthenticationUtils $utils):Response
     {
@@ -32,7 +35,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("admin/logut", name="admin_account_logout")
+     * @Route("admin/logout", name="admin_account_logout")
      */
     public function logout()
     {

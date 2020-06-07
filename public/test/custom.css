@@ -23,7 +23,10 @@ div.carousel-caption {
     max-height: 128px;
     border-radius: 50%;
 }
-
+.avatar-big{
+    max-width: 150px;
+    max-height: 150px;
+}
 .avatar-medium{
     max-width: 64px;
     max-height: 64px;

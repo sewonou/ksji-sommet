@@ -1,52 +1,54 @@
 {% extends 'base.html.twig' %}
 {% block title %}Inscription{% endblock %}
 {% block body %}
-    <div class="jumbotron">
-        <div class="container">
-            <h1 class="display-3">Hello, world!</h1>
-            <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-            <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+    <section id="intro" style="height: 65vh !important; ">
+        <div class="intro-container wow fadeIn">
+            <h1 class="mb-2 pb-0"><span>8<sup>ème</sup> Sommet Ouest Africain</span></h1>
+            <img src="{{ asset('img/logo.jpeg') }}" alt="" class="avatar avatar-medium mb-2">
+            <h3 class="mb-4 pb-0" style="background-color: #ed4b91; font-weight: bold;">Thème : La confiance : Une dymanique de la vie au quotidienne</h3>
+            <p>Date limite des inscriptions : Le 31 Décembre 2020. Après cette date une majoration  de 20% est appliqué jusqu'au 28 Février 2020</p>
+
         </div>
-    </div>
-    <div class="container">
-        <h1 class="my-5">Inscrivez vous sur notre site</h1>
+    </section>
+    <section id="subscribe" class="section-bg ">
+    <div class="container wow fadeInUp">
         {{ form_start(form) }}
         <div class="row">
-            <div class="col">
-                <div class="alert alert-light">
-                    <h2 class="alert-heading">Informations générales</h2>
-                    <hr>
-                    {{ form_row(form.firstName) }}
-                    {{ form_row(form.name) }}
-                    {{ form_row(form.email) }}
-                </div>
-                <div class="alert alert-light">
-                    <h2 class="alert-heading">Mot de passe</h2>
-                    <hr>
-                    {{ form_row(form.hash) }}
-                    {{ form_row(form.passwordConfirm) }}
+            <div class="col-md-6">
+                <div class="bg-dark py-3 px-3 text-light">
+                    <fieldset>
+                        <legend>Informations personnel</legend>
+                        {{ form_row(form.firstName) }}
+                        {{ form_row(form.lastName) }}
+                        {{ form_row(form.gender) }}
+                        {{ form_row(form.imageFile) }}
+                        {{ form_row(form.address) }}
+                    </fieldset>
                 </div>
             </div>
-            <div class="col">
-                <div class="alert alert-light">
-                    <h2 class="alert-heading">
-                        Détails
-                    </h2>
-                    <hr>
-                    {{ form_row(form.country) }}
-                    {{ form_row(form.grandBoard) }}
-                    {{ form_row(form.local) }}
-                    <hr>
-                    <p>Vous y êtes presque confirmer votre inscription, rejoignez nous</p>
-                    <button type="submit" class="btn btn-success">
-                        <i class="fas fa-check"></i>
-                        Confirmez l'inscription
-                    </button>
+            <div class="col-md-6 mt-3">
+                <div class="bg-dark py-3 px-3 text-light">
+                    <fieldset>
+                        <legend>Information de connexion</legend>
+                        {{ form_row(form.email) }}
+                        {{ form_row(form.hash) }}
+                    </fieldset>
+                </div>
+            </div>
+            <div class="col-md-6 mt-3">
+                <div class="bg-dark py-3 px-3 text-light">
+                    <fieldset>
+                        <legend>Information sur l'ordre</legend>
+                        {{ form_row(form.country) }}
+                        {{ form_row(form.board) }}
+                        {{ form_row(form.local) }}
+                        {{ form_row(form.category) }}
+                    </fieldset>
                 </div>
             </div>
         </div>
         {{ form_end(form) }}
-    </div>
+    </section>
 {% endblock %}
 
 
