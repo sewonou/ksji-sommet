@@ -36,26 +36,30 @@
                     <a href="{{ path('admin') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Pays</a>
-
+                    <a href="{{ path('admin_country') }}"><i class="fa fa-bar-chart-o fa-fw"></i>Pays</a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-table fa-fw"></i> Programmes</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-edit fa-fw"></i> Forms</a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="{{ path('admin_day') }}">Jour d'activité</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_day_event') }}">Les activité</a>
+                        </li>
+                    </ul>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-wrench fa-fw"></i>Gestion des inscriptions<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="#">Ajouter participant</a>
+                            <a href="{{ path('admin_participant_add') }}">Ajouter participant</a>
                         </li>
                         <li>
-                            <a href="#">Liste</a>
+                            <a href="{{ path('admin_participant') }}">Liste</a>
                         </li>
                         <li>
-                            <a href="#">Réservations</a>
+                            <a href="{{ path('admin_booking') }}">Réservations</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->
@@ -64,13 +68,13 @@
                     <a href="#"><i class="fa fa-wrench fa-fw"></i>Gestion des Hotels<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="#">Ajouter hotel</a>
+                            <a href="{{ path('admin_hotel_add') }}">Ajouter hotel</a>
                         </li>
                         <li>
-                            <a href="#">Liste</a>
+                            <a href="{{ path('admin_hotel') }}">Liste</a>
                         </li>
                         <li>
-                            <a href="#">Réservations</a>
+                            <a href="{{ path('admin_booking') }}">Réservations</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->
@@ -79,10 +83,13 @@
                     <a href="#"><i class="fa fa-files-o fa-fw"></i> Informations complémentaires<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="#">Speakers</a>
+                            <a href="{{ path('admin_faq') }}">Faq</a>
                         </li>
                         <li>
-                            <a href="#">Faq</a>
+                            <a href="{{ path('admin_category') }}">Categorie d'article</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_content') }}">Article (contenu)</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->

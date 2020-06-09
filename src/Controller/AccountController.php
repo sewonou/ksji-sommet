@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Hotel;
 use App\Entity\Participant;
 use App\Entity\User;
 use App\Form\ParticipantType;
@@ -77,5 +78,15 @@ class AccountController extends AbstractController
         return $this->render('account/registration.html.twig', [
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/account/booking/{id}", name="account_booking")
+     * @param Hotel $hotel
+     * @return Response
+     */
+    public function booking(Hotel $hotel):Response
+    {
+        return $this->redirectToRoute('home');
     }
 }

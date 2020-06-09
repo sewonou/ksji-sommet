@@ -68,6 +68,11 @@ class Day
         return $this;
     }
 
+    public function getInfo()
+    {
+        return $this->title .' | '. date_format($this->getDayEvents(), 'd-m-Y');
+    }
+
     /**
      * @return Collection|DayEvent[]
      */

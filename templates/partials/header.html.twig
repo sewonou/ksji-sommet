@@ -2,21 +2,16 @@
     <div class="container">
 
         <div id="logo" class="pull-left">
-            <!-- Uncomment below if you prefer to use a text logo -->
-            <!-- <h1><a href="#main">C<span>o</span>nf</a></h1>-->
-            <a href="#intro" class="scrollto"><img class="avatar avatar-medium" src="{{ asset('img/logo.jpeg') }}" alt="" title=""></a>
+            <a href="#intro" class="scrollto"><img class="avatar avatar-medium" src="{{ asset('img/logo.jpeg') }}" alt="" title="" style="margin-right: 8px">KSJI : Sommet Ouest Africain 2021</a>
         </div>
 
         <nav id="nav-menu-container">
             <ul class="nav-menu">
                 <li class="menu-active"><a href="{{ path('home') }}#intro">Home</a></li>
-                <li><a href="{{ path('home') }}#about">About</a></li>
-                <li><a href="{{ path('home') }}#speakers">Speakers</a></li>
-                <li><a href="{{ path('home') }}#schedule">Schedule</a></li>
-                <li><a href="{{ path('home') }}#venue">Venue</a></li>
-                <li><a href="{{ path('home') }}#hotels">Hotels</a></li>
+                <li><a href="{{ path('home') }}#about">A propos</a></li>
+                <li><a href="{{ path('home') }}#schedule">Programme</a></li>
+                <li><a href="{{ path('home') }}#venue">Hotel</a></li>
                 <li><a href="{{ path('home') }}#gallery">Gallery</a></li>
-                <li><a href="{{ path('home') }}#supporters">Sponsors</a></li>
                 <li><a href="{{ path('home') }}#contact">Contact</a></li>
                 {%  if app.user %}
                 <li class="nav-item dropdown">
@@ -25,10 +20,7 @@
                         Test
                     </a>
                     <div class="dropdown-menu drowpdown-menu-right" aria-labelledby="accountDropdownLink">
-                        <a href="#" class="dropdown-item">Créer une aannonce</a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">Mon compte</a>
-                        <a href="#" class="dropdown-item">Mes réservations</a>
+                        <a href="#" class="dropdown-item">Ma réservation</a>
                         <div class="dropdown-divider"></div>
                         <a href="{{ path('account_logout') }}" class="dropdown-item">Déconnexion</a>
                     </div>

@@ -26,12 +26,22 @@
 
         <!-- Main Stylesheet File -->
         {% block stylesheets %}{% endblock %}
+        <link href="{{ asset('css/fontawesome.min.css') }}" rel="stylesheet">
         <link href="{{ asset('test/css/style.css') }}" rel="stylesheet">
         <link href="{{ asset('test/custom.css') }}" rel="stylesheet">
     </head>
 
     <body>
         {{ include('partials/header.html.twig') }}
+        {% for label, messages in app.flashes %}
+            <div class="container">
+                <div class="alert alert-{{ label }}">
+                    {% for message in messages %}
+                        <p>{{ message | raw }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
         {% block body %}{% endblock %}
         {{ include('partials/footer.html.twig') }}
         <!-- JavaScript Libraries -->

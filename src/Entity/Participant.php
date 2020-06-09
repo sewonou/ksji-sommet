@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
@@ -107,6 +108,11 @@ class Participant implements UserInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $slug;
+
+    /**
+     * @ORM\Column(type="string", length=20, nullable=true)
+     */
+    private $phone;
 
     public function __construct()
     {
@@ -313,8 +319,9 @@ class Participant implements UserInterface
     }
 
     /**
-     * @param File | \Symfony\Component\HttpFoundation\File\UploadedFile | null $imageFile
+     * @param File | UploadedFile | null $imageFile
      * @return  void
+     * @throws \Exception
      */
     public function setImageFile(?File $imageFile = null): void
     {
@@ -377,6 +384,18 @@ class Participant implements UserInterface
     public function setSlug(?string $slug): self
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getPhone(): ?string
+    {
+        return $this->phone;
+    }
+
+    public function setPhone(?string $phone): self
+    {
+        $this->phone = $phone;
 
         return $this;
     }

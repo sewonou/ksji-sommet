@@ -8,23 +8,21 @@
 
             <h3 class="mb-4 pb-0" style="background-color: #ed4b91; font-weight: bold;">Thème : La confiance : Une dymanique de la vie au quotidienne</h3>
 
-            <a data-toggle="modal" data-target="#exampleModal" class="about-btn scrollto">S'inscrire</a>
+            <a href="{{ path('registration') }}" class="about-btn scrollto">S'inscrire</a>
         </div>
     </section>
 
     <main id="main">
         <section id="about">
             <div class="container">
+                {% if abouts is defined %}
                 <div class="row">
+                    {% for about in abouts %}
                     <div class="col-lg-6">
-                        <h2>About The Event</h2>
-                        <p class="p-3">Il est important de signaler que toutes les commanderies existantes dans la sous-région Ouest Africaine étaient regroupées sous un même parapluie qui était la West Africa Grand Commanderie. Elle comptait le Ghana, le Libéria, la Sierra-Leone, le Nigeria, et le Togo. Aujourd’hui, chaque pays a une ou plusieurs Grandes commanderies. Ces différents pays ont initié en 2005 un regroupement sous-régional dénommé « Conférence Ouest-Africain » qui se tient tous les deux ans en année impaire et à tour de rôle.</p>
+                        <h2>{{ about.title }}</h2>
+                        <p class="p-3">{{ about.content }}</p>
                     </div>
-                    <div class="col-lg-6">
-                        <h2>About The Event</h2>
-                        <p class="p-3">Il est important de signaler que toutes les commanderies existantes dans la sous-région Ouest Africaine étaient regroupées sous un même parapluie qui était la West Africa Grand Commanderie. Elle comptait le Ghana, le Libéria, la Sierra-Leone, le Nigeria, et le Togo. Aujourd’hui, chaque pays a une ou plusieurs Grandes commanderies. Ces différents pays ont initié en 2005 un regroupement sous-régional dénommé « Conférence Ouest-Africain » qui se tient tous les deux ans en année impaire et à tour de rôle.</p>
-                    </div>
-
+                    {% endfor %}
                 </div>
             </div>
         </section>
@@ -37,65 +35,22 @@
                 </div>
 
                 <div class="row justify-content-center">
+                    {% if faqs is defined %}
                     <div class="col-lg-9">
                         <ul id="faq-list">
-
+                            {% for faq in faqs %}
                             <li>
-                                <a data-toggle="collapse" class="collapsed" href="#faq1">Non consectetur a erat nam at lectus urna duis? <i class="fa fa-minus-circle"></i></a>
-                                <div id="faq1" class="collapse" data-parent="#faq-list">
+                                <a data-toggle="collapse" class="collapsed" href="#faq{{ faq.id }}">{{ faq.question }}<i class="fa fa-minus-circle"></i></a>
+                                <div id="faq{{ faq.id }}" class="collapse" data-parent="#faq-list">
                                     <p>
-                                        Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+                                        {{ faq.answer }}
                                     </p>
                                 </div>
                             </li>
-
-                            <li>
-                                <a data-toggle="collapse" href="#faq2" class="collapsed">Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque? <i class="fa fa-minus-circle"></i></a>
-                                <div id="faq2" class="collapse" data-parent="#faq-list">
-                                    <p>
-                                        Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
-                                    </p>
-                                </div>
-                            </li>
-
-                            <li>
-                                <a data-toggle="collapse" href="#faq3" class="collapsed">Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi? <i class="fa fa-minus-circle"></i></a>
-                                <div id="faq3" class="collapse" data-parent="#faq-list">
-                                    <p>
-                                        Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
-                                    </p>
-                                </div>
-                            </li>
-
-                            <li>
-                                <a data-toggle="collapse" href="#faq4" class="collapsed">Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla? <i class="fa fa-minus-circle"></i></a>
-                                <div id="faq4" class="collapse" data-parent="#faq-list">
-                                    <p>
-                                        Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
-                                    </p>
-                                </div>
-                            </li>
-
-                            <li>
-                                <a data-toggle="collapse" href="#faq5" class="collapsed">Tempus quam pellentesque nec nam aliquam sem et tortor consequat? <i class="fa fa-minus-circle"></i></a>
-                                <div id="faq5" class="collapse" data-parent="#faq-list">
-                                    <p>
-                                        Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
-                                    </p>
-                                </div>
-                            </li>
-
-                            <li>
-                                <a data-toggle="collapse" href="#faq6" class="collapsed">Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? <i class="fa fa-minus-circle"></i></a>
-                                <div id="faq6" class="collapse" data-parent="#faq-list">
-                                    <p>
-                                        Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Nibh tellus molestie nunc non blandit massa enim nec.
-                                    </p>
-                                </div>
-                            </li>
-
+                            {% endfor %}
                         </ul>
                     </div>
+                    {% endif %}
                 </div>
 
             </div>
@@ -104,263 +59,55 @@
         <section id="subscribe">
             <div class="container wow fadeInUp">
                 <div class="section-header">
-                    <h2>Newsletter</h2>
-                    <p>Rerum numquam illum recusandae quia mollitia consequatur.</p>
-
+                    <h2>Pour Dieu et la Patrie</h2>
+                    <p>Le rendez vous est dans :</p>
                 </div>
                 <div class="simply-countdown simply-countdown-one" style="text-align: center;"></div>
             </div>
         </section>
         <section id="schedule" class="section-with-bg">
             <div class="container wow fadeInUp">
+                {% if days is defined %}
                 <div class="section-header">
                     <h2>Event Schedule</h2>
                     <p>Here is our event schedule</p>
                 </div>
 
                 <ul class="nav nav-tabs" role="tablist">
+                    {% for day in days %}
                     <li class="nav-item">
-                        <a class="nav-link active" href="#day-1" role="tab" data-toggle="tab">Day 1</a>
+                        <a class="nav-link {% if loop.index == 1 %}active{% endif %}" href="#day-{{ day.id }}" role="tab" data-toggle="tab">{{ day.title }}</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#day-2" role="tab" data-toggle="tab">Day 2</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#day-3" role="tab" data-toggle="tab">Day 3</a>
-                    </li>
+                    {% endfor %}
                 </ul>
-
+                {% endif %}
                 <h3 class="sub-heading">Voluptatem nulla veniam soluta et corrupti consequatur neque eveniet officia. Eius
                     necessitatibus voluptatem quis labore perspiciatis quia.</h3>
 
                 <div class="tab-content row justify-content-center">
+                    {% for day in days %}
 
-                    <!-- Schdule Day 1 -->
-                    <div role="tabpanel" class="col-lg-9 tab-pane fade show active" id="day-1">
-
+                    <!-- Schedule Day 1 -->
+                    <div role="tabpanel" class="col-lg-9 tab-pane fade show {% if loop.index == 1 %}active{% endif %}" id="day-{{ day.id }}">
+                        {% for dayEvent in day.dayEvents %}
                         <div class="row schedule-item">
-                            <div class="col-md-2"><time>09:30 AM</time></div>
+                            <div class="col-md-2"><time>{{ dayEvent.time }}</time></div>
                             <div class="col-md-10">
-                                <h4>Registration</h4>
-                                <p>Fugit voluptas iusto maiores temporibus autem numquam magnam.</p>
+                                <h4>{{ dayEvent.title }}</h4>
+                                {% if dayEvent.speaker is not null %}
+                                <p>{{ dayEvent.speaker }}</p>
+                                {% endif %}
                             </div>
                         </div>
-
-                        <div class="row schedule-item">
-                            <div class="col-md-2"><time>10:00 AM</time></div>
-                            <div class="col-md-10">
-                                <div class="speaker">
-                                    <img src="{{ asset('test/img/speakers/1.jpg') }}" alt="Brenden Legros">
-                                </div>
-                                <h4>Keynote <span>Brenden Legros</span></h4>
-                                <p>Facere provident incidunt quos voluptas.</p>
-                            </div>
-                        </div>
-
-                        <div class="row schedule-item">
-                            <div class="col-md-2"><time>11:00 AM</time></div>
-                            <div class="col-md-10">
-                                <div class="speaker">
-                                    <img src="{{ asset('test/img/speakers/2.jpg') }}" alt="Hubert Hirthe">
-                                </div>
-                                <h4>Et voluptatem iusto dicta nobis. <span>Hubert Hirthe</span></h4>
-                                <p>Maiores dignissimos neque qui cum accusantium ut sit sint inventore.</p>
-                            </div>
-                        </div>
-
-                        <div class="row schedule-item">
-                            <div class="col-md-2"><time>12:00 AM</time></div>
-                            <div class="col-md-10">
-                                <div class="speaker">
-                                    <img src="{{ asset('test/img/speakers/3.jpg') }}" alt="Cole Emmerich">
-                                </div>
-                                <h4>Explicabo et rerum quis et ut ea. <span>Cole Emmerich</span></h4>
-                                <p>Veniam accusantium laborum nihil eos eaque accusantium aspernatur.</p>
-                            </div>
-                        </div>
-
-                        <div class="row schedule-item">
-                            <div class="col-md-2"><time>02:00 PM</time></div>
-                            <div class="col-md-10">
-                                <div class="speaker">
-                                    <img src="{{ asset('test/img/speakers/4.jpg') }}" alt="Jack Christiansen">
-                                </div>
-                                <h4>Qui non qui vel amet culpa sequi. <span>Jack Christiansen</span></h4>
-                                <p>Nam ex distinctio voluptatem doloremque suscipit iusto.</p>
-                            </div>
-                        </div>
-
-                        <div class="row schedule-item">
-                            <div class="col-md-2"><time>03:00 PM</time></div>
-                            <div class="col-md-10">
-                                <div class="speaker">
-                                    <img src="{{ asset('test/img/speakers/5.jpg') }}" alt="Alejandrin Littel">
-                                </div>
-                                <h4>Quos ratione neque expedita asperiores. <span>Alejandrin Littel</span></h4>
-                                <p>Eligendi quo eveniet est nobis et ad temporibus odio quo.</p>
-                            </div>
-                        </div>
-
-                        <div class="row schedule-item">
-                            <div class="col-md-2"><time>04:00 PM</time></div>
-                            <div class="col-md-10">
-                                <div class="speaker">
-                                    <img src="{{ asset('test/img/speakers/6.jpg') }}" alt="Willow Trantow">
-                                </div>
-                                <h4>Quo qui praesentium nesciunt <span>Willow Trantow</span></h4>
-                                <p>Voluptatem et alias dolorum est aut sit enim neque veritatis.</p>
-                            </div>
-                        </div>
-
+                        {% endfor %}
                     </div>
                     <!-- End Schdule Day 1 -->
 
-                    <!-- Schdule Day 2 -->
-                    <div role="tabpanel" class="col-lg-9  tab-pane fade" id="day-2">
+                    {% endfor %}
 
-                        <div class="row schedule-item">
-                            <div class="col-md-2"><time>10:00 AM</time></div>
-                            <div class="col-md-10">
-                                <div class="speaker">
-                                    <img src="{{ asset('test/img/speakers/1.jpg') }}" alt="Brenden Legros">
-                                </div>
-                                <h4>Libero corrupti explicabo itaque. <span>Brenden Legros</span></h4>
-                                <p>Facere provident incidunt quos voluptas.</p>
-                            </div>
-                        </div>
-
-                        <div class="row schedule-item">
-                            <div class="col-md-2"><time>11:00 AM</time></div>
-                            <div class="col-md-10">
-                                <div class="speaker">
-                                    <img src="{{ asset('test/img/speakers/2.jpg') }}" alt="Hubert Hirthe">
-                                </div>
-                                <h4>Et voluptatem iusto dicta nobis. <span>Hubert Hirthe</span></h4>
-                                <p>Maiores dignissimos neque qui cum accusantium ut sit sint inventore.</p>
-                            </div>
-                        </div>
-
-                        <div class="row schedule-item">
-                            <div class="col-md-2"><time>12:00 AM</time></div>
-                            <div class="col-md-10">
-                                <div class="speaker">
-                                    <img src="{{ asset('test/img/speakers/3.jpg') }}" alt="Cole Emmerich">
-                                </div>
-                                <h4>Explicabo et rerum quis et ut ea. <span>Cole Emmerich</span></h4>
-                                <p>Veniam accusantium laborum nihil eos eaque accusantium aspernatur.</p>
-                            </div>
-                        </div>
-
-                        <div class="row schedule-item">
-                            <div class="col-md-2"><time>02:00 PM</time></div>
-                            <div class="col-md-10">
-                                <div class="speaker">
-                                    <img src="{{ asset('test/img/speakers/4.jpg') }}" alt="Jack Christiansen">
-                                </div>
-                                <h4>Qui non qui vel amet culpa sequi. <span>Jack Christiansen</span></h4>
-                                <p>Nam ex distinctio voluptatem doloremque suscipit iusto.</p>
-                            </div>
-                        </div>
-
-                        <div class="row schedule-item">
-                            <div class="col-md-2"><time>03:00 PM</time></div>
-                            <div class="col-md-10">
-                                <div class="speaker">
-                                    <img src="{{ asset('test/img/speakers/5.jpg') }}" alt="Alejandrin Littel">
-                                </div>
-                                <h4>Quos ratione neque expedita asperiores. <span>Alejandrin Littel</span></h4>
-                                <p>Eligendi quo eveniet est nobis et ad temporibus odio quo.</p>
-                            </div>
-                        </div>
-
-                        <div class="row schedule-item">
-                            <div class="col-md-2"><time>04:00 PM</time></div>
-                            <div class="col-md-10">
-                                <div class="speaker">
-                                    <img src="{{ asset('test/img/speakers/6.jpg') }}" alt="Willow Trantow">
-                                </div>
-                                <h4>Quo qui praesentium nesciunt <span>Willow Trantow</span></h4>
-                                <p>Voluptatem et alias dolorum est aut sit enim neque veritatis.</p>
-                            </div>
-                        </div>
-
-                    </div>
-                    <!-- End Schdule Day 2 -->
-
-                    <!-- Schdule Day 3 -->
-                    <div role="tabpanel" class="col-lg-9  tab-pane fade" id="day-3">
-
-                        <div class="row schedule-item">
-                            <div class="col-md-2"><time>10:00 AM</time></div>
-                            <div class="col-md-10">
-                                <div class="speaker">
-                                    <img src="{{ asset('test/img/speakers/2.jpg') }}" alt="Hubert Hirthe">
-                                </div>
-                                <h4>Et voluptatem iusto dicta nobis. <span>Hubert Hirthe</span></h4>
-                                <p>Maiores dignissimos neque qui cum accusantium ut sit sint inventore.</p>
-                            </div>
-                        </div>
-
-                        <div class="row schedule-item">
-                            <div class="col-md-2"><time>11:00 AM</time></div>
-                            <div class="col-md-10">
-                                <div class="speaker">
-                                    <img src="{{ asset('test/img/speakers/3.jpg') }}" alt="Cole Emmerich">
-                                </div>
-                                <h4>Explicabo et rerum quis et ut ea. <span>Cole Emmerich</span></h4>
-                                <p>Veniam accusantium laborum nihil eos eaque accusantium aspernatur.</p>
-                            </div>
-                        </div>
-
-                        <div class="row schedule-item">
-                            <div class="col-md-2"><time>12:00 AM</time></div>
-                            <div class="col-md-10">
-                                <div class="speaker">
-                                    <img src="{{ asset('test/img/speakers/1.jpg') }}" alt="Brenden Legros">
-                                </div>
-                                <h4>Libero corrupti explicabo itaque. <span>Brenden Legros</span></h4>
-                                <p>Facere provident incidunt quos voluptas.</p>
-                            </div>
-                        </div>
-
-                        <div class="row schedule-item">
-                            <div class="col-md-2"><time>02:00 PM</time></div>
-                            <div class="col-md-10">
-                                <div class="speaker">
-                                    <img src="{{ asset('test/img/speakers/4.jpg') }}" alt="Jack Christiansen">
-                                </div>
-                                <h4>Qui non qui vel amet culpa sequi. <span>Jack Christiansen</span></h4>
-                                <p>Nam ex distinctio voluptatem doloremque suscipit iusto.</p>
-                            </div>
-                        </div>
-
-                        <div class="row schedule-item">
-                            <div class="col-md-2"><time>03:00 PM</time></div>
-                            <div class="col-md-10">
-                                <div class="speaker">
-                                    <img src="{{ asset('test/img/speakers/5.jpg') }}" alt="Alejandrin Littel">
-                                </div>
-                                <h4>Quos ratione neque expedita asperiores. <span>Alejandrin Littel</span></h4>
-                                <p>Eligendi quo eveniet est nobis et ad temporibus odio quo.</p>
-                            </div>
-                        </div>
-
-                        <div class="row schedule-item">
-                            <div class="col-md-2"><time>04:00 PM</time></div>
-                            <div class="col-md-10">
-                                <div class="speaker">
-                                    <img src="{{ asset('test/img/speakers/6.jpg') }}" alt="Willow Trantow">
-                                </div>
-                                <h4>Quo qui praesentium nesciunt <span>Willow Trantow</span></h4>
-                                <p>Voluptatem et alias dolorum est aut sit enim neque veritatis.</p>
-                            </div>
-                        </div>
-
-                    </div>
-                    <!-- End Schdule Day 2 -->
 
                 </div>
-
+                {% endif %}
             </div>
 
         </section>
@@ -378,15 +125,12 @@
                         <div class="card mb-5 mb-lg-0">
                             <div class="card-body">
                                 <h5 class="card-title text-muted text-uppercase text-center">Standard Access</h5>
-                                <h6 class="card-price text-center">$50</h6>
+                                <h6 class="card-price text-center">$65</h6>
                                 <hr>
                                 <ul class="fa-ul">
-                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>Regular Seating</li>
-                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>Coffee Break</li>
-                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>Custom Badge</li>
-                                    <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Community Access</li>
-                                    <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Workshop Access</li>
-                                    <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>After Party</li>
+                                    <li>
+                                        Les frais de participation à la rencontre. Payable auprès de votre commanderie.
+                                    </li>
                                 </ul>
                                 {% if app.user %}
                                     <hr>
@@ -397,29 +141,29 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="card mb-5 mb-lg-0">
-                            <div class="card-body">
-                                <h5 class="card-title text-muted text-uppercase text-center">Pro Access</h5>
-                                <h6 class="card-price text-center">$250</h6>
-                                <hr>
-                                <ul class="fa-ul">
-                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>Regular Seating</li>
-                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>Coffee Break</li>
-                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>Custom Badge</li>
-                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>Community Access</li>
-                                    <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Workshop Access</li>
-                                    <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>After Party</li>
-                                </ul>
-                                {% if app.user %}
+                    {% if hotels is defined %}
+                        {% for hotle in hotels %}
+                        <div class="col-lg-4">
+                            <div class="card mb-5 mb-lg-0">
+                                <div class="card-body">
+                                    <h5 class="card-title text-muted text-uppercase text-center">{{ hotel.name}}</h5>
+                                    <h6 class="card-price text-center">${{ hotel.price | number_format }}</h6>
                                     <hr>
-                                    <div class="text-center">
-                                        <button type="button" class="btn" data-toggle="modal" data-target="#buy-ticket-modal" data-ticket-type="premium-access">Buy Now</button>
-                                    </div>
-                                {% endif %}
+                                    <ul class="fa-ul">
+                                        <li>{{ hotel.introduction }}</li>
+                                        <li>{% include 'partials/ratings.html.twig' with {'rating': hotel.rating} %}</li>
+                                    </ul>
+                                    {% if app.user %}
+                                        <hr>
+                                        <div class="text-center">
+                                            <a type="button" class="btn" href="{{ path('account_booking') }}">Réserver</a>
+                                        </div>
+                                    {% endif %}
+                                </div>
                             </div>
                         </div>
-                    </div>
+                        {% endfor %}
+                    {% endif %}
                     <!-- Pro Tier -->
                     <div class="col-lg-4">
                         <div class="card">
@@ -448,51 +192,14 @@
 
             </div>
 
-            <!-- Modal Order Form -->
-            <div id="buy-ticket-modal" class="modal fade">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Buy Tickets</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form method="POST" action="#">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="your-name" placeholder="Your Name">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="your-email" placeholder="Your Email">
-                                </div>
-                                <div class="form-group">
-                                    <select id="ticket-type" name="ticket-type" class="form-control" >
-                                        <option value="">-- Select Your Ticket Type --</option>
-                                        <option value="standard-access">Standard Access</option>
-                                        <option value="pro-access">Pro Access</option>
-                                        <option value="premium-access">Premium Access</option>
-                                    </select>
-                                </div>
-                                {% if app.user %}
-                                    <div class="text-center">
-                                        <button type="submit" class="btn">Buy Now</button>
-                                    </div>
-                                {% endif %}
-                            </form>
-                        </div>
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
-            </div><!-- /.modal -->
-
         </section>
 
         <section id="gallery" class="wow fadeInUp">
 
             <div class="container">
                 <div class="section-header">
-                    <h2>Gallery</h2>
-                    <p>Check our gallery from the recent events</p>
+                    <h2>Gallerie</h2>
+                    <p>Quelques images de l'ordre au togo et en Afrique</p>
                 </div>
             </div>
 
@@ -512,7 +219,7 @@
         <!--==========================
           Sponsors Section
         ============================-->
-        <section id="supporters" class="section-with-bg wow fadeInUp">
+        {#<section id="supporters" class="section-with-bg wow fadeInUp">
 
             <div class="container">
                 <div class="section-header">
@@ -573,12 +280,12 @@
 
             </div>
 
-        </section>
+        </section>#}
 
         <!--==========================
           Subscribe Section
         ============================-->
-        <section id="subscribe">
+        {#<section id="subscribe">
             <div class="container wow fadeInUp">
                 <div class="section-header">
                     <h2>Newsletter</h2>
@@ -597,14 +304,14 @@
                 </form>
 
             </div>
-        </section>
+        </section>#}
         <section id="contact" class="section-bg wow fadeInUp">
 
             <div class="container">
 
                 <div class="section-header">
-                    <h2>Contact Us</h2>
-                    <p>Nihil officia ut sint molestiae tenetur.</p>
+                    <h2>Nous contacter</h2>
+                    <p>Vpus voulez plus d'informations? Ecrivez nous directement !</p>
                 </div>
 
                 <div class="row contact-info">
@@ -612,16 +319,16 @@
                     <div class="col-md-4">
                         <div class="contact-address">
                             <i class="ion-ios-location-outline"></i>
-                            <h3>Address</h3>
-                            <address>A108 Adam Street, NY 535022, USA</address>
+                            <h3>Adresse </h3>
+                            <address>Lomé, Togo - Doumasséssé - Tokoin Kisito, non loin de l'église catholique</address>
                         </div>
                     </div>
 
                     <div class="col-md-4">
                         <div class="contact-phone">
                             <i class="ion-ios-telephone-outline"></i>
-                            <h3>Phone Number</h3>
-                            <p><a href="tel:+155895548855">+1 5589 55488 55</a></p>
+                            <h3>Téléphone</h3>
+                            <p><a href="tel:+22899999999">(+228) 99 99 99 99 </a></p>
                         </div>
                     </div>
 
@@ -636,7 +343,7 @@
                 </div>
 
                 <div class="form">
-                    <div id="sendmessage">Your message has been sent. Thank you!</div>
+                    <div id="sendmessage">Votre message, s'il vous plait</div>
                     <div id="errormessage"></div>
                     <form action="" method="post" role="form" class="contactForm">
                         <div class="form-row">
@@ -657,7 +364,7 @@
                             <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
                             <div class="validation"></div>
                         </div>
-                        <div class="text-center"><button type="submit">Send Message</button></div>
+                        <div class="text-center"><button type="submit">Envoyer le message</button></div>
                     </form>
                 </div>
 

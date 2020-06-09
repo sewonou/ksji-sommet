@@ -2,7 +2,7 @@
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Hotel
+                Jour d'évenement
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
@@ -10,29 +10,27 @@
                     <thead>
                     <tr>
                         <th>N°</th>
-                        <th>Hotel</th>
-                        <th>Etoile</th>
-                        <th>Prix</th>
+                        <th>Titre</th>
+                        <th>Date</th>
                         <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {% if faqs %}
-                        {% for hotel in hotels %}
+                    {% if days %}
+                        {% for day in days %}
                             <tr>
                                 <td width="75px">{{ loop.index0 + 1  }}</td>
-                                <td>{{ hotel.name }}</td>
-                                <td>{% include 'partials/ratings.html.twig' with {'rating': hotel.rating} %}</td>
-                                <td>{{ hotel.price }}</td>
+                                <td>{{ day.title }}</td>
+                                <td>{{ day.scheduleAt | date('d-m-Y') }}</td>
                                 <td class="left" width="150px">
-                                    <a href="{{ path('admin_faq_edit', {id : faq.id} ) }}" class="btn btn-link"><i class="fa fa-edit"></i></a>
-                                    <a href="{{ path('admin_faq_delete', {id : faq.id} ) }}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                    <a href="{{ path('admin_day_edit', {id : day.id} ) }}" class="btn btn-link"><i class="fa fa-edit"></i></a>
+                                    <a href="{{ path('admin_day_delete', {id : day.id} ) }}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         {% endfor %}
                     {% else %}
                     <tr>
-                        <td colspan="5">Aucune donnée dans la base .</td>
+                        <td colspan="4">Aucune donnée dans la base .</td>
                     </tr>
                     {% endif %}
                     </tbody>

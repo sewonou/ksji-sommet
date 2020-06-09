@@ -90,6 +90,11 @@ class ParticipantType extends ApplicationType
                 FileType::class,
                 $this->getConfiguration('Photo', "Votre photo ...")
             )
+            ->add(
+                'phone',
+                TextType::class,
+                $this->getConfiguration('Contact', "Votre numérp de téléphone ..")
+            )
 
         ;
     }

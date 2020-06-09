@@ -1,0 +1,23 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %} Pays{% endblock %}
+
+{% block body %}
+    {{ include('admin/country/_form.html.twig', {title  : 'Modifier le pays'}) }}
+    {{ include('admin/country/_content.html.twig') }}
+{% endblock %}
+{% block stylesheets %}
+    <!-- DataTables CSS -->
+    <link href="{{ asset('back/vendor/datatables-plugins/dataTables.bootstrap.css') }}" rel="stylesheet">
+
+    <!-- DataTables Responsive CSS -->
+    <link href="{{ asset('back/vendor/datatables-responsive/dataTables.responsive.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block javascripts %}
+    <!-- DataTables JavaScript -->
+    <script src="{{ asset('back/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('back//vendor/datatables-plugins/dataTables.bootstrap.min.js') }}"></script>
+    <script src="{{ asset('back/vendor/datatables-responsive/dataTables.responsive.js') }}"></script>
+
+{% endblock %}
