@@ -70,7 +70,7 @@ class Day
 
     public function getInfo()
     {
-        return $this->title .' | '. date_format($this->getDayEvents(), 'd-m-Y');
+        return $this->title ;
     }
 
     /**

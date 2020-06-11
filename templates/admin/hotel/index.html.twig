@@ -1,20 +1,22 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/base.html.twig' %}
 
-{% block title %}Hello AdminHotelController!{% endblock %}
+{% block title %}Hotel{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    {{ include('admin/hotel/_content.html.twig') }}
+{% endblock %}
+{% block stylesheets %}
+    <!-- DataTables CSS -->
+    <link href="{{ asset('back/vendor/datatables-plugins/dataTables.bootstrap.css') }}" rel="stylesheet">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <!-- DataTables Responsive CSS -->
+    <link href="{{ asset('back/vendor/datatables-responsive/dataTables.responsive.css') }}" rel="stylesheet">
+{% endblock %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'D:/htdocs/client_dev/ksji-sommet.dev/src/Controller/AdminHotelController.php'|file_link(0) }}">src/Controller/AdminHotelController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'D:/htdocs/client_dev/ksji-sommet.dev/templates/admin_hotel/index.html.twig'|file_link(0) }}">templates/admin_hotel/index.html.twig</a></code></li>
-    </ul>
-</div>
+{% block javascripts %}
+    <!-- DataTables JavaScript -->
+    <script src="{{ asset('back/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('back//vendor/datatables-plugins/dataTables.bootstrap.min.js') }}"></script>
+    <script src="{{ asset('back/vendor/datatables-responsive/dataTables.responsive.js') }}"></script>
+
 {% endblock %}

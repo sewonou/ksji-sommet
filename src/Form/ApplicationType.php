@@ -22,6 +22,7 @@ class ApplicationType extends AbstractType
             'label' => $label,
             'attr' => [
                 'placeholder' => $placeholder,
+                'required' => false,
             ]
         ], $options);
     }

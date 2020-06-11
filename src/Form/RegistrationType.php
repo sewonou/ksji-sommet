@@ -22,7 +22,7 @@ class RegistrationType extends ApplicationType
             ->add(
                 'firstName',
                 TextType::class,
-                $this->getConfiguration('Prénom', "Vos prénoms ...")
+                $this->getConfiguration('Prénoms', "Vos prénoms ...")
             )
             ->add(
                 'lastName',

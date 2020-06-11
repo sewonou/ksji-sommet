@@ -10,21 +10,31 @@
                     <thead>
                     <tr>
                         <th>N°</th>
-                        <th>Question</th>
-                        <th>Réponse</th>
+                        <th>Catégorie</th>
+                        <th>Nom et prénoms</th>
+                        <th>Pays</th>
+                        <th>Grande commanderie / Auxilliarie</th>
+                        <th>commanderie / Auxilliarie Locale</th>
+                        <th>Contact</th>
+                        <th>Mail</th>
                         <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {% if faqs %}
-                        {% for faq in faqs %}
+                    {% if participants %}
+                        {% for participant in participants %}
                             <tr>
                                 <td width="75px">{{ loop.index0 + 1  }}</td>
-                                <td>{{ faq.question }}</td>
-                                <td>{{ faq.answer }}</td>
+                                <th>{{ participant.category }}</th>
+                                <td>{{ participant.fullName }}</td>
+                                <td>{{ participant.country }}</td>
+                                <td>{{ participant.board }}</td>
+                                <td>{{ participant.local }}</td>
+                                <td>{{ participant.phone }}</td>
+                                <td>{{ participant.email }}</td>
                                 <td class="left" width="150px">
-                                    <a href="{{ path('admin_faq_edit', {id : faq.id} ) }}" class="btn btn-link"><i class="fa fa-edit"></i></a>
-                                    <a href="{{ path('admin_faq_delete', {id : faq.id} ) }}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                    <a href="{{ path('admin_participant_edit', {id : participant.id} ) }}" class="btn btn-link"><i class="fa fa-edit"></i></a>
+                                    <a href="{{ path('admin_participant_delete', {id : participant.id} ) }}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         {% endfor %}

@@ -17,10 +17,6 @@ class HotelType extends ApplicationType
         $builder
             ->add('name', TextType::class,
                 $this->getConfiguration('Dénommination', "Saisir la dénommination de l'hotel ..."))
-            ->add('address', TextType::class,
-                $this->getConfiguration('Adresse', "Saisir l'adresse de l'hotel"))
-            ->add('description', TextareaType::class,
-                $this->getConfiguration('Description', "Donnez la description complète de l'hotel"))
             ->add('introduction', TextType::class,
                 $this->getConfiguration('Introduction', "Sasir un description introductive de l'hotel"))
             ->add('rating', IntegerType::class, $this->getConfiguration('Note sur 5', 'Veuillez indiquer une note entre  0 et 5', [
@@ -30,7 +26,7 @@ class HotelType extends ApplicationType
                     'step' => 1
                 ]
             ]))
-            ->add('price', IntegerType::class, $this->getConfiguration('Note sur 5', 'Veuillez indiquer le prix de la chambre'))
+            ->add('price', IntegerType::class, $this->getConfiguration('Prix', 'Veuillez indiquer le prix de la chambre'))
         ;
     }
 

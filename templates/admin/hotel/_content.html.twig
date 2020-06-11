@@ -11,6 +11,7 @@
                     <tr>
                         <th>N°</th>
                         <th>Hotel</th>
+                        <th>Description Chambre</th>
                         <th>Etoile</th>
                         <th>Prix</th>
                         <th>Action</th>
@@ -22,11 +23,12 @@
                             <tr>
                                 <td width="75px">{{ loop.index0 + 1  }}</td>
                                 <td>{{ hotel.name }}</td>
+                                <td>{{ hotel.introduction }}</td>
                                 <td>{% include 'partials/ratings.html.twig' with {'rating': hotel.rating} %}</td>
                                 <td>{{ hotel.price }}</td>
                                 <td class="left" width="150px">
-                                    <a href="{{ path('admin_faq_edit', {id : faq.id} ) }}" class="btn btn-link"><i class="fa fa-edit"></i></a>
-                                    <a href="{{ path('admin_faq_delete', {id : faq.id} ) }}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                    <a href="{{ path('admin_hotel_edit', {id : hotel.id} ) }}" class="btn btn-link"><i class="fa fa-edit"></i></a>
+                                    <a href="{{ path('admin_hotel_delete', {id : hotel.id} ) }}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         {% endfor %}

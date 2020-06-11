@@ -2,17 +2,19 @@
 
 namespace App\Entity;
 
+
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use App\Repository\ParticipantRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
+
 
 /**
  * @ORM\Entity(repositoryClass=ParticipantRepository::class)
+ *
  */
 class Participant implements UserInterface
 {
@@ -72,11 +74,6 @@ class Participant implements UserInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $category;
-
-    /**
-     * @ORM\OneToMany(targetEntity=Booking::class, mappedBy="booker")
-     */
-    private $bookings;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -275,36 +272,6 @@ class Participant implements UserInterface
         // TODO: Implement eraseCredentials() method.
     }
 
-    /**
-     * @return Collection|Booking[]
-     */
-    public function getBookings(): Collection
-    {
-        return $this->bookings;
-    }
-
-    public function addBooking(Booking $booking): self
-    {
-        if (!$this->bookings->contains($booking)) {
-            $this->bookings[] = $booking;
-            $booking->setBooker($this);
-        }
-
-        return $this;
-    }
-
-    public function removeBooking(Booking $booking): self
-    {
-        if ($this->bookings->contains($booking)) {
-            $this->bookings->removeElement($booking);
-            // set the owning side to null (unless already changed)
-            if ($booking->getBooker() === $this) {
-                $booking->setBooker(null);
-            }
-        }
-
-        return $this;
-    }
 
     public function getImage(): ?string
     {

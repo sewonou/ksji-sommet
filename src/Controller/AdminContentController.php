@@ -67,7 +67,7 @@ class AdminContentController extends AbstractController
     }
 
     /**
-     * @Route("/admin/categories/{id}/delete", name="admin_category_delete")
+     * @Route("/admin/categories/{id}/delete", name="admin_content_delete")
      * @param Content $content
      * @param ObjectManager $manager
      * @return Response

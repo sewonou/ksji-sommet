@@ -6,7 +6,7 @@
             <h1 class="mb-2 pb-0"><span>8<sup>ème</sup> Sommet Ouest Africain</span></h1>
             <img src="{{ asset('img/logo.jpeg') }}" alt="" class="avatar avatar-big mb-2">
 
-            <h3 class="mb-4 pb-0" style="background-color: #ed4b91; font-weight: bold;">Thème : La confiance : Une dymanique de la vie au quotidienne</h3>
+            <h3 class="mb-4 pb-0" style="background-color: #ed4b91; font-weight: bold;">Thème : La confiance : Une dymanique de la vie au quotidien</h3>
 
             <a href="{{ path('registration') }}" class="about-btn scrollto">S'inscrire</a>
         </div>
@@ -20,7 +20,7 @@
                     {% for about in abouts %}
                     <div class="col-lg-6">
                         <h2>{{ about.title }}</h2>
-                        <p class="p-3">{{ about.content }}</p>
+                        <p class="p-3">{{ about.description }}</p>
                     </div>
                     {% endfor %}
                 </div>
@@ -91,7 +91,7 @@
                     <div role="tabpanel" class="col-lg-9 tab-pane fade show {% if loop.index == 1 %}active{% endif %}" id="day-{{ day.id }}">
                         {% for dayEvent in day.dayEvents %}
                         <div class="row schedule-item">
-                            <div class="col-md-2"><time>{{ dayEvent.time }}</time></div>
+                            <div class="col-md-2"><time>{{ dayEvent.hour | date('H:i:s') }}</time></div>
                             <div class="col-md-10">
                                 <h4>{{ dayEvent.title }}</h4>
                                 {% if dayEvent.speaker is not null %}
@@ -142,7 +142,7 @@
                         </div>
                     </div>
                     {% if hotels is defined %}
-                        {% for hotle in hotels %}
+                        {% for hotel in hotels %}
                         <div class="col-lg-4">
                             <div class="card mb-5 mb-lg-0">
                                 <div class="card-body">
@@ -164,7 +164,7 @@
                         </div>
                         {% endfor %}
                     {% endif %}
-                    
+
                 </div>
 
             </div>
