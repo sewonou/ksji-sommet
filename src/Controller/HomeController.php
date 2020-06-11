@@ -10,6 +10,7 @@ use App\Repository\CategoryRepository;
 use App\Repository\ContentRepository;
 use App\Repository\DayRepository;
 use App\Repository\FaqRepository;
+use App\Repository\HotelRepository;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,9 +27,10 @@ class HomeController extends AbstractController
      * @param ContentRepository $contentRepository
      * @param DayRepository $dayRepository
      * @param FaqRepository $faqRepository
+     * @param HotelRepository $hotelRepository
      * @return Response
      */
-    public function index(CategoryRepository $categoryRepository, ContentRepository $contentRepository, DayRepository $dayRepository,FaqRepository $faqRepository)
+    public function index(CategoryRepository $categoryRepository, ContentRepository $contentRepository, DayRepository $dayRepository,FaqRepository $faqRepository, HotelRepository $hotelRepository)
     {
         $about = $categoryRepository->findOneBy(['title' => 'ABOUT']);
 
@@ -37,6 +39,7 @@ class HomeController extends AbstractController
             'abouts' => $contentRepository->findBy(['category' => $about]),
             'faqs' => $faqRepository->findAll(),
             'days' => $dayRepository->findAll(),
+            'hotels' => $hotelRepository->findAll(),
         ]);
     }
 
