@@ -3,18 +3,16 @@
 namespace App\Entity;
 
 
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use App\Repository\ParticipantRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 
 /**
  * @ORM\Entity(repositoryClass=ParticipantRepository::class)
- *
+ * @Vich\Uploadable
  */
 class Participant implements UserInterface
 {
@@ -81,7 +79,7 @@ class Participant implements UserInterface
     private $image;
 
     /**
-     * @Vich\UploadableField(mapping="image", fileNameProperty="image")
+     * @Vich\UploadableField(mapping="image_participant", fileNameProperty="image")
      * @var File|null
      */
     private $imageFile;
@@ -111,9 +109,29 @@ class Participant implements UserInterface
      */
     private $phone;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $arrivalWay;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $arrivalTime;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $departureTime;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Hotel::class, inversedBy="participants")
+     */
+    private $hotel;
+
     public function __construct()
     {
-        $this->bookings = new ArrayCollection();
+
     }
 
     public function getId(): ?int
@@ -363,6 +381,54 @@ class Participant implements UserInterface
     public function setPhone(?string $phone): self
     {
         $this->phone = $phone;
+
+        return $this;
+    }
+
+    public function getArrivalWay(): ?string
+    {
+        return $this->arrivalWay;
+    }
+
+    public function setArrivalWay(?string $arrivalWay): self
+    {
+        $this->arrivalWay = $arrivalWay;
+
+        return $this;
+    }
+
+    public function getArrivalTime(): ?\DateTimeInterface
+    {
+        return $this->arrivalTime;
+    }
+
+    public function setArrivalTime(?\DateTimeInterface $arrivalTime): self
+    {
+        $this->arrivalTime = $arrivalTime;
+
+        return $this;
+    }
+
+    public function getDepartureTime(): ?\DateTimeInterface
+    {
+        return $this->departureTime;
+    }
+
+    public function setDepartureTime(?\DateTimeInterface $departureTime): self
+    {
+        $this->departureTime = $departureTime;
+
+        return $this;
+    }
+
+    public function getHotel(): ?Hotel
+    {
+        return $this->hotel;
+    }
+
+    public function setHotel(?Hotel $hotel): self
+    {
+        $this->hotel = $hotel;
 
         return $this;
     }

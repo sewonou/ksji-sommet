@@ -95,6 +95,26 @@ class RegistrationType extends ApplicationType
                 TextType::class,
                 $this->getConfiguration('Contact', "Votre numérp de téléphone ..")
             )
+            ->add(
+                'arrivalWay',
+                TextType::class,
+                $this->getConfiguration('Contact', "Votre numérp de téléphone ..")
+            )
+            ->add(
+                'arrivalTime',
+                TextType::class,
+                $this->getConfiguration('Contact', "Votre numérp de téléphone ..")
+            )
+            ->add(
+                'departureTime',
+                TextType::class,
+                $this->getConfiguration('Contact', "Votre numérp de téléphone ..")
+            )
+            ->add(
+                'hotel',
+                EntityType::class,
+                $this->getConfiguration('Contact', "Votre numérp de téléphone ..")
+            )
         ;
     }
 
