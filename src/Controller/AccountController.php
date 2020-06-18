@@ -73,6 +73,7 @@ class AccountController extends AbstractController
             $participant->setHash($hash);
             $manager->persist($participant);
             $manager->flush();
+            return $this->redirectToRoute('home');
         }
 
         return $this->render('account/registration.html.twig', [

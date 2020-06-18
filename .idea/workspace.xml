@@ -3,10 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="5cb61b06-67f8-4d7c-81b4-b2c7451599b9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/vich_uploader.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/vich_uploader.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Hotel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Hotel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Participant.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Participant.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/RegistrationType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegistrationType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AccountController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AccountController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ParticipantType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ParticipantType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/StatsService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/StatsService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/account/registration.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/registration.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/account/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/account/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/home/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/partials/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/header.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,7 +221,8 @@
       <workItem from="1591526266260" duration="9830000" />
       <workItem from="1591690108271" duration="15177000" />
       <workItem from="1591863897675" duration="4513000" />
-      <workItem from="1592328051179" duration="3699000" />
+      <workItem from="1592328051179" duration="3944000" />
+      <workItem from="1592465492582" duration="5667000" />
     </task>
     <servers />
   </component>

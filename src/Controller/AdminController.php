@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Service\StatService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,11 +12,13 @@ class AdminController extends AbstractController
 {
     /**
      * @Route("/admin", name="admin")
+     * @param StatService $stat
+     * @return Response
      */
-    public function index()
+    public function index(StatService $stat)
     {
         return $this->render('admin/home/index.html.twig', [
-
+            'stat' => $stat,
         ]);
     }
 
