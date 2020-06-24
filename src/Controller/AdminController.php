@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\ParticipantRepository;
 use App\Service\StatService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,12 +14,15 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin", name="admin")
      * @param StatService $stat
+     * @param ParticipantRepository $repository
      * @return Response
      */
-    public function index(StatService $stat)
+    public function index(StatService $stat, ParticipantRepository $repository)
     {
         return $this->render('admin/home/index.html.twig', [
             'stat' => $stat,
+            'knights' => $repository->findBy(['gender'=>'M'],['id'=>'DESC'], 10,null),
+            'ladies' => $repository->findBy(['gender'=>'F'],['id'=>'DESC'], 10,null),
         ]);
     }
 

@@ -1564,7 +1564,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 @media (min-width: 767px) {
   #subscribe input {
-    min-width: 400px;
+    min-width: 242px;
   }
 }
 

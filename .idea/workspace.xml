@@ -3,15 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="5cb61b06-67f8-4d7c-81b4-b2c7451599b9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AccountController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AccountController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/test/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/test/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AdminParticipantController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminParticipantController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/ParticipantType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ParticipantType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/StatsService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/StatsService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/account/registration.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/registration.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/account/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/account/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/StatsService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/StatService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/admin/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/home/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/partials/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/header.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,19 +167,19 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/admin/country" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\htdocs\ksji-sommet\templates\admin\country" />
-      <recent name="D:\htdocs\ksji-sommet\templates\admin\day_event" />
-      <recent name="D:\htdocs\ksji-sommet\templates\admin\day" />
-      <recent name="D:\htdocs\client_dev\ksji-sommet.dev\templates\admin\home" />
-      <recent name="D:\htdocs\client_dev\ksji-sommet.dev\templates\admin\participant" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\htdocs\ksji-sommet\templates\admin" />
       <recent name="D:\htdocs\ksji-sommet\templates\partials" />
       <recent name="D:\htdocs\client_dev\ksji-sommet.dev\templates\admin\hotel" />
       <recent name="D:\htdocs\client_dev\ksji-sommet.dev\templates\admin" />
       <recent name="D:\htdocs\client_dev\ksji-sommet.dev\public" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\htdocs\ksji-sommet\templates\admin\country" />
+      <recent name="D:\htdocs\ksji-sommet\templates\admin\day_event" />
+      <recent name="D:\htdocs\ksji-sommet\templates\admin\day" />
+      <recent name="D:\htdocs\client_dev\ksji-sommet.dev\templates\admin\home" />
+      <recent name="D:\htdocs\client_dev\ksji-sommet.dev\templates\admin\participant" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -223,6 +221,8 @@
       <workItem from="1591863897675" duration="4513000" />
       <workItem from="1592328051179" duration="3944000" />
       <workItem from="1592465492582" duration="5667000" />
+      <workItem from="1592854529908" duration="1721000" />
+      <workItem from="1593032271879" duration="6980000" />
     </task>
     <servers />
   </component>

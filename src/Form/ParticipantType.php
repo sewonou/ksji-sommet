@@ -92,11 +92,15 @@ class ParticipantType extends ApplicationType
             ->add(
                 'arrivalTime',
                 DateTimeType::class,
-                $this->getConfiguration('Date et Heure d\'arrivée', "Votre heure d'arrivé .."))
+                $this->getConfiguration('Date et Heure d\'arrivée', "Votre heure d'arrivé ..", [
+                    'widget' => 'single_text'
+                ]))
             ->add(
                 'departureTime',
                 DateTimeType::class,
-                $this->getConfiguration('Date et Heure de départ', "Votre numérp de téléphone .."))
+                $this->getConfiguration('Date et Heure de départ', "Votre numérp de téléphone ..", [
+                    'widget' => 'single_text'
+                ]))
             ->add(
                 'hotel',
                 EntityType::class,

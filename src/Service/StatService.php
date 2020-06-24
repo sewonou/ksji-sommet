@@ -17,8 +17,7 @@ class StatService{
         $query = $this->manager->createQuery('
             SELECT COUNT(p) AS total 
             FROM App\Entity\Participant p
-            JOIN p.country c
-            WHERE c.name = '.$country);
+            WHERE p.country = '.$country);
 
         return $query->getSingleScalarResult();
     }

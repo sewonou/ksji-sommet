@@ -58,6 +58,7 @@ class AdminParticipantController extends AbstractController
         $form = $this->createForm(RegistrationType::class, $participant);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+
             $this->addFlash('success', "Le participant  {$participant->getFullName()} a bien été modifier");
             $manager->persist($participant);
             $manager->flush();
