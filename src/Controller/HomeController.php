@@ -2,27 +2,22 @@
 
 namespace App\Controller;
 
-use App\Entity\DayEvent;
-use App\Entity\Participant;
-use App\Form\ParticipantType;
-use App\Form\RegistrationType;
+
 use App\Repository\CategoryRepository;
 use App\Repository\ContentRepository;
 use App\Repository\DayRepository;
 use App\Repository\FaqRepository;
+use App\Repository\GalleryRepository;
 use App\Repository\HotelRepository;
-use Doctrine\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class HomeController extends AbstractController
 {
     /**
      * @Route("/", name="home")
+     * @param GalleryRepository $galleryRepository
      * @param CategoryRepository $categoryRepository
      * @param ContentRepository $contentRepository
      * @param DayRepository $dayRepository
@@ -30,7 +25,7 @@ class HomeController extends AbstractController
      * @param HotelRepository $hotelRepository
      * @return Response
      */
-    public function index(CategoryRepository $categoryRepository, ContentRepository $contentRepository, DayRepository $dayRepository,FaqRepository $faqRepository, HotelRepository $hotelRepository)
+    public function index(GalleryRepository $galleryRepository,CategoryRepository $categoryRepository, ContentRepository $contentRepository, DayRepository $dayRepository,FaqRepository $faqRepository, HotelRepository $hotelRepository)
     {
         $about = $categoryRepository->findOneBy(['title' => 'ABOUT']);
 
@@ -40,6 +35,7 @@ class HomeController extends AbstractController
             'faqs' => $faqRepository->findAll(),
             'days' => $dayRepository->findAll(),
             'hotels' => $hotelRepository->findAll(),
+            'galleries' => $galleryRepository->findAll()
         ]);
     }
 

@@ -2,14 +2,14 @@
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                {{ title }}  {% if country is defined %} : {{ country.name }} {% endif %}
+                {{ title }}  {% if gallery is defined %} : {{ gallery.id }} {% endif %}
             </div>
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-12">
                         {{ form_start(form) }}
-                            {{ form_row(form.name) }}
-                            {{ form_row(form.password) }}
+                            {{ form_row(form.imageFile) }}
+                            {{ form_row(form.description) }}
 
                             <button type="submit" class="btn btn-success">Valider</button>
                             <button type="reset" class="btn btn-default">Annuler</button>

@@ -24,6 +24,34 @@ class AdminParticipantController extends AbstractController
             'participants' => $repo->findAll(),
         ]);
     }
+
+    /**
+     * @Route("/admin/participants/bygender/{gender}", name="admin_participant_bygender")
+     * @param ParticipantRepository $repo
+     * @param string $gender
+     * @return Response
+     */
+    public function byGender(ParticipantRepository $repo, string $gender):Response
+    {
+        return $this->render('admin/participant/index.html.twig', [
+            'participants' => $repo->findBy(['gender'=>$gender]),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/participants/bycountry/{country}", name="admin_participant_bycountry")
+     * @param ParticipantRepository $repo
+     * @param string $country
+     * @return Response
+     */
+    public function byCountry(ParticipantRepository $repo, string  $country):Response
+    {
+        return $this->render('admin/participant/index.html.twig', [
+            'participants' => $repo->findBy(['country'=>$country]),
+        ]);
+    }
+
+
     /**
      * @Route("/admin/participants/add", name="admin_participant_add")
      * @param ObjectManager $manager

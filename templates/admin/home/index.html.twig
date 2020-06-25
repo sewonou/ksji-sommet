@@ -2,178 +2,293 @@
 {% block title %}{% endblock %}
 {% block body %}
 
-
-        <!-- /.row -->
+<div class="row">
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-users fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">{{ stat.count }}</div>
+                        <div>Nombre d'inscrit</div>
+                    </div>
+                </div>
+            </div>
+            <a href="{{ path('admin_participant') }}">
+                <div class="panel-footer">
+                    <span class="pull-left">Voir détails</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-green">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-female fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">{{ stat.countGender("'F'") }}</div>
+                        <div>Nombre de dames</div>
+                    </div>
+                </div>
+            </div>
+            <a href="{{ path('admin_participant_bygender', {'gender': 'F'}) }}">
+                <div class="panel-footer">
+                    <span class="pull-left">Voir Détails</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-yellow">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-male fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">{{ stat.countGender("'M'") }}</div>
+                        <div>Nombre de chevaliers</div>
+                    </div>
+                </div>
+            </div>
+            <a href="{{ path('admin_participant_bygender', {'gender': 'M'}) }}">
+                <div class="panel-footer">
+                    <span class="pull-left">Voir détails</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-red">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-bed fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">{{ stat.countHotel }}</div>
+                        <div>Nombre d'hotels</div>
+                    </div>
+                </div>
+            </div>
+            <a href="{{ path('admin_hotel') }}">
+                <div class="panel-footer">
+                    <span class="pull-left">Voir Détails</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="panel-body">
         <div class="row">
-            <div class="col-lg-3 col-md-6">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-comments fa-5x"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge">{{ stat.countCountry("'TOGO'") }}</div>
-                                <div>Participant du Togo</div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#">
-                        <div class="panel-footer">
-                            <span class="pull-left">View Details</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
+            <div class="col-lg-4">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-striped">
+                        <thead>
+                        <tr>
+                            <th>Pays</th>
+                            <th>Délégué</th>
+                            <th>Observateur</th>
+                            <th>Total</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Togo</td>
+                            <td>{{ stat.countCategoryCountry("'Délégué'", "'TOGO'") }}</td>
+                            <td>{{ stat.countCategoryCountry("'Observateur'", "'TOGO'") }}</td>
+                            <td>{{ stat.count }}</td>
+                        </tr>
+                        <tr>
+                            <td>Ghana</td>
+                            <td>{{ stat.countCategoryCountry("'Délégué'", "'GHANA'") }}</td>
+                            <td>{{ stat.countCategoryCountry("'Observateur'", "'GHANA'") }}</td>
+                            <td>{{ stat.count }}</td>
+                        </tr>
+                        <tr>
+                            <td>Nigeria</td>
+                            <td>{{ stat.countCategoryCountry("'Délégué'", "'NIGERIA'") }}</td>
+                            <td>{{ stat.countCategoryCountry("'Observateur'", "'NIGERIA'") }}</td>
+                            <td>{{ stat.count }}</td>
+                        </tr>
+                        <tr>
+                            <td>Libéria</td>
+                            <td>{{ stat.countCategoryCountry("'Délégué'", "'LIBERIA'") }}</td>
+                            <td>{{ stat.countCategoryCountry("'Observateur'", "'LIBERIA'") }}</td>
+                            <td>{{ stat.count }}</td>
+                        </tr>
+                        <tr>
+                            <td>Sierra Léonne</td>
+                            <td>{{ stat.countCategoryCountry("'Délégué'", "'SIERRA LEONNE'") }}</td>
+                            <td>{{ stat.countCategoryCountry("'Observateur'", "'SIERRA LEONNE'") }}</td>
+                            <td>{{ stat.count }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
+                <!-- /.table-responsive -->
             </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="panel panel-green">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-tasks fa-5x"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge">{{ stat.countCountry("'GHANA'") }}</div>
-                                <div>Participant du Ghana</div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#">
-                        <div class="panel-footer">
-                            <span class="pull-left">View Details</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
+            <div class="col-lg-8">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-striped">
+                        <thead>
+                        <tr>
+                            <th>Pays</th>
+                            <th>Chevaliers Délégués</th>
+                            <th>Chevaliers Observateurs</th>
+                            <th>Dames Déléguées</th>
+                            <th>Dames Observateur</th>
+                            <th>Total</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Togo</td>
+                            <td>{{ stat.countCategoryCountryGender("'Délégué'", "'TOGO'" ,"'M'") }}</td>
+                            <td>{{ stat.countCategoryCountryGender("'Observateur'", "'TOGO'" ,"'M'") }}</td>
+                            <td>{{ stat.countCategoryCountryGender("'Délégué'", "'TOGO'" ,"'F'") }}</td>
+                            <td>{{ stat.countCategoryCountryGender("'Observateur'", "'TOGO'" ,"'F'") }}</td>
+                            <td>{{ stat.count }}</td>
+                        </tr>
+                        <tr>
+                            <td>Ghana</td>
+                            <td>{{ stat.countCategoryCountryGender("'Délégué'", "'GHANA'" ,"'M'") }}</td>
+                            <td>{{ stat.countCategoryCountryGender("'Observateur'", "'GHANA'" ,"'M'") }}</td>
+                            <td>{{ stat.countCategoryCountryGender("'Délégué'", "'GHANA'" ,"'F'") }}</td>
+                            <td>{{ stat.countCategoryCountryGender("'Observateur'", "'GHANA'" ,"'F'") }}</td>
+                            <td>{{ stat.count }}</td>
+                        </tr>
+                        <tr>
+                            <td>Nigéria</td>
+                            <td>{{ stat.countCategoryCountryGender("'Délégué'", "'NIGERIA'" ,"'M'") }}</td>
+                            <td>{{ stat.countCategoryCountryGender("'Observateur'", "'NIGERIA'" ,"'M'") }}</td>
+                            <td>{{ stat.countCategoryCountryGender("'Délégué'", "'NIGERIA'" ,"'F'") }}</td>
+                            <td>{{ stat.countCategoryCountryGender("'Observateur'", "'NIGERIA'" ,"'F'") }}</td>
+                            <td>{{ stat.count }}</td>
+                        </tr>
+                        <tr>
+                            <td>Libéria</td>
+                            <td>{{ stat.countCategoryCountryGender("'Délégué'", "'LIBERIA'" ,"'M'") }}</td>
+                            <td>{{ stat.countCategoryCountryGender("'Observateur'", "'LIBERIA'" ,"'M'") }}</td>
+                            <td>{{ stat.countCategoryCountryGender("'Délégué'", "'LIBERIA'" ,"'F'") }}</td>
+                            <td>{{ stat.countCategoryCountryGender("'Observateur'", "'LIBERIA'" ,"'F'") }}</td>
+                            <td>{{ stat.count }}</td>
+                        </tr>
+                        <tr>
+                            <td>Sierra léonne</td>
+                            <td>{{ stat.countCategoryCountryGender("'Délégué'", "'SIERRA LEONNE'" ,"'M'") }}</td>
+                            <td>{{ stat.countCategoryCountryGender("'Observateur'", "'SIERRA LEONNE'" ,"'M'") }}</td>
+                            <td>{{ stat.countCategoryCountryGender("'Délégué'", "'SIERRA LEONNE'" ,"'F'") }}</td>
+                            <td>{{ stat.countCategoryCountryGender("'Observateur'", "'SIERRA LEONNE'" ,"'F'") }}</td>
+                            <td>{{ stat.count }}</td>
+                        </tr>
+
+                        </tbody>
+                    </table>
                 </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="panel panel-yellow">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-shopping-cart fa-5x"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge">{{ stat.countCountry("'NIGERIA'") }}</div>
-                                <div>Participant du Nigeria</div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#">
-                        <div class="panel-footer">
-                            <span class="pull-left">View Details</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="panel panel-red">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-support fa-5x"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge">{{ stat.countCountry("'LIBERIA'") }}</div>
-                                <div>Participant du Togo</div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#">
-                        <div class="panel-footer">
-                            <span class="pull-left">View Details</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
-                </div>
+                <!-- /.table-responsive -->
             </div>
         </div>
         <!-- /.row -->
-        <div class="row">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                           Chevaliers Récemment enregistrés
-                        </div>
-                        <div class="panel-body">
-                            <table width="100%" class="table table-striped table-bordered table-hover" id="tableK">
-                                <thead>
-                                <tr>
-                                    <th>photo</th>
-                                    <th>Nom et prénoms</th>
-                                    <th>Pays</th>
-                                    <th>Grande commanderie</th>
-                                    <th>Commanderie local</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                {% if knights %}
-                                    {% for knight in knights %}
-                                        <tr>
-                                            <td><img src="{{ asset('uploads/participants/') }}{% if knight.image is not null %}{{  knight.image}}{% endif %}" alt="avatar avatar-mini"></td>
-                                            <td>{{ knight.fullName }}</td>
-                                            <td>{{ knight.country }}</td>
-                                            <td class="center">{{ knight.board }}</td>
-                                            <td class="center">{{ knight.local }}</td>
-                                        </tr>
-                                    {% endfor %}
-                                {% else %}
-                                    <tr>
-                                        <td colspan="5">Aucune donnée</td>
-                                    </tr>
-                                {% endif %}
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Chevaliers Récemment enregistrés
+            </div>
+            <div class="panel-body">
+                <table width="100%" class="table table-striped table-bordered table-hover" id="tableK">
+                    <thead>
+                    <tr>
+                        <th>photo</th>
+                        <th>Nom et prénoms</th>
+                        <th>Pays</th>
+                        <th>Grande commanderie</th>
+                        <th>Commanderie local</th>
+                        <th>Contact</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% if knights %}
+                        {% for knight in knights %}
+                            <tr>
+                                <td><img src="{{ asset('uploads/participants/') }}{% if knight.image is not null %}{{  knight.image}}{% endif %}" class="avatar avatar-medium" alt="{{ knight.fullName }}"></td>
+                                <td>{{ knight.fullName }}</td>
+                                <td>{{ knight.country }}</td>
+                                <td class="center">{{ knight.board }}</td>
+                                <td class="center">{{ knight.local }}</td>
+                                <td class="center">{{ knight.phone }}</td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="5">Aucune donnée</td>
+                        </tr>
+                    {% endif %}
 
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Dames Récemment enregistrés
-                        </div>
-                        <div class="panel-body">
-                            <table width="100%" class="table table-striped table-bordered table-hover" id="tableL">
-                                <thead>
-                                <tr>
-                                    <th>photo</th>
-                                    <th>Nom et prénoms</th>
-                                    <th>Pays</th>
-                                    <th>Grande Auxilliarie</th>
-                                    <th>Auxilliarie local</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                {% if ladies %}
-                                {% for lady in ladies %}
-                                <tr>
-                                    <td><img src="{% if lady.image is not null %}{{ asset('uploads/participants/') }}{{  lady.image}}{% else %}{{ asset('uploads/participants/logo-moov-3m44x2m50-5eeb2c7c945c1584884703.jpg') }}{% endif %}" class="avatar avatar-mini"></td>
-                                    <td>{{ lady.fullName }}</td>
-                                    <td>{{ lady.country }}</td>
-                                    <td class="center">{{ lady.board }}</td>
-                                    <td class="center">{{ lady.local }}</td>
-                                </tr>
-                                {% endfor %}
-                                {% else %}
-                                <tr>
-                                    <td colspan="5">Aucune donnée</td>
-                                </tr>
-                                {% endif %}
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+                    </tbody>
+                </table>
             </div>
         </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Dames Récemment enregistrés
+            </div>
+            <div class="panel-body">
+                <table width="100%" class="table table-striped table-bordered table-hover" id="tableL">
+                    <thead>
+                    <tr>
+                        <th>photo</th>
+                        <th>Nom et prénoms</th>
+                        <th>Pays</th>
+                        <th>Grande Auxilliarie</th>
+                        <th>Auxilliarie local</th>
+                        <th>Contact</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% if ladies %}
+                        {% for lady in ladies %}
+                            <tr>
+                                <td><img src="{% if lady.image is not null %}{{ asset('uploads/participants/') }}{{  lady.image}}{% else %}{{ asset('uploads/participants/logo-moov-3m44x2m50-5eeb2c7c945c1584884703.jpg') }}{% endif %}" class="avatar avatar-mini" alt="{{ lady.fullName }}"></td>
+                                <td>{{ lady.fullName }}</td>
+                                <td>{{ lady.country }}</td>
+                                <td class="center">{{ lady.board }}</td>
+                                <td class="center">{{ lady.local }}</td>
+                                <td class="center">{{ lady.phone }}</td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="5">Aucune donnée</td>
+                        </tr>
+                    {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 {% endblock %}

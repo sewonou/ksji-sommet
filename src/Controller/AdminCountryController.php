@@ -4,12 +4,14 @@ namespace App\Controller;
 
 use App\Entity\Country;
 use App\Form\CountryType;
+use App\Form\ParticipantType;
 use App\Repository\CountryRepository;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class AdminCountryController extends AbstractController
 {
@@ -20,12 +22,14 @@ class AdminCountryController extends AbstractController
      * @param Request $request
      * @return Response
      */
-    public function index(ObjectManager $manager, CountryRepository $repo, Request $request):Response
+    public function index(ObjectManager $manager, CountryRepository $repo, Request $request, UserPasswordEncoderInterface $encoder):Response
     {
         $country = new Country();
         $form = $this->createForm(CountryType::class, $country);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
+            $password = $encoder->encodePassword($this->getUser() ,$country->getPassword());
+            $country->setPassword($password);
             $this->addFlash('success', "Le pays {$country->getName()} a bien été enregistrer");
             $manager->persist($country);
             $manager->flush();
@@ -46,11 +50,13 @@ class AdminCountryController extends AbstractController
      * @param Request $request
      * @return Response
      */
-    public function edit(Country $country,ObjectManager $manager, CountryRepository $repo, Request $request):Response
+    public function edit(Country $country,ObjectManager $manager, CountryRepository $repo, Request $request, UserPasswordEncoderInterface $encoder):Response
     {
         $form = $this->createForm(CountryType::class, $country);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
+            $password = $encoder->encodePassword($this->getUser() ,$country->getPassword());
+            $country->setPassword($password);
             $this->addFlash('success', "Le pays {$country->getName()} a bien été Modifier");
             $manager->persist($country);
             $manager->flush();

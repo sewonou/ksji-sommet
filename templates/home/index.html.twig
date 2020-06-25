@@ -4,11 +4,13 @@
     <section id="intro">
         <div class="intro-container wow fadeIn">
             <h1 class="mb-2 pb-0"><span>8<sup>ème</sup> Sommet Ouest Africain</span></h1>
+            <h1 class="mb-2 pb-0"><span>8<sup>th</sup> West African Summit</span></h1>
             <img src="{{ asset('img/logo.jpeg') }}" alt="" class="avatar avatar-big mb-2">
 
             <h3 class="mb-4 pb-0" style="background-color: #ed4b91; font-weight: bold;">Thème : La confiance : Une dymanique de la vie au quotidien</h3>
+            <h3 class="mb-4 pb-0" style="background-color: #ed4b91; font-weight: bold;">Theme: Confidence: A dynamic of everyday life</h3>
 
-            <a href="{{ path('registration') }}" class="about-btn">S'inscrire</a>
+            <a href="{{ path('registration') }}" class="about-btn">Register</a>
         </div>
     </section>
 
@@ -81,8 +83,7 @@
                     {% endfor %}
                 </ul>
                 {% endif %}
-                <h3 class="sub-heading">Voluptatem nulla veniam soluta et corrupti consequatur neque eveniet officia. Eius
-                    necessitatibus voluptatem quis labore perspiciatis quia.</h3>
+                <h3 class="sub-heading"></h3>
 
                 <div class="tab-content row justify-content-center">
                     {% for day in days %}
@@ -116,8 +117,8 @@
             <div class="container">
 
                 <div class="section-header">
-                    <h2>Participation</h2>
-                    <p>Velit consequatur consequatur inventore iste fugit unde omnis eum aut.</p>
+                    <h2>Participation Fees</h2>
+                    <p></p>
                 </div>
 
                 <div class="row">
@@ -128,9 +129,7 @@
                                 <h6 class="card-price text-center">$65</h6>
                                 <hr>
                                 <ul class="fa-ul">
-                                    <li>
-                                        Les frais de participation à la rencontre. Payable auprès de votre commanderie.
-                                    </li>
+                                    <li>The costs of participation in the meeting. must be payed in your local or grand commandery.</li>
                                 </ul>
                                 {% if app.user %}
                                     <hr>
@@ -156,7 +155,7 @@
                                     {% if app.user %}
                                         <hr>
                                         <div class="text-center">
-                                            <a type="button" class="btn" href="{{ path('account_booking') }}">Réserver</a>
+                                            <a type="button" class="btn" href="{{ path('account_booking') }}">Buy ticket</a>
                                         </div>
                                     {% endif %}
                                 </div>
@@ -181,14 +180,23 @@
             </div>
 
             <div class="owl-carousel gallery-carousel">
-                <a href="{{ asset('test/img/gallery/1.jpg') }}" class="venobox" data-gall="gallery-carousel"><img src="{{ asset('test/img/gallery/1.jpg') }}" alt=""></a>
-                <a href="{{ asset('test/img/gallery/2.jpg') }}" class="venobox" data-gall="gallery-carousel"><img src="{{ asset('test/img/gallery/2.jpg') }}" alt=""></a>
-                <a href="{{ asset('test/img/gallery/3.jpg') }}" class="venobox" data-gall="gallery-carousel"><img src="{{ asset('test/img/gallery/3.jpg') }}" alt=""></a>
-                <a href="{{ asset('test/img/gallery/4.jpg') }}" class="venobox" data-gall="gallery-carousel"><img src="{{ asset('test/img/gallery/4.jpg') }}" alt=""></a>
-                <a href="{{ asset('test/img/gallery/5.jpg') }}" class="venobox" data-gall="gallery-carousel"><img src="{{ asset('test/img/gallery/5.jpg') }}" alt=""></a>
-                <a href="{{ asset('test/img/gallery/6.jpg') }}" class="venobox" data-gall="gallery-carousel"><img src="{{ asset('test/img/gallery/6.jpg') }}" alt=""></a>
-                <a href="{{ asset('test/img/gallery/7.jpg') }}" class="venobox" data-gall="gallery-carousel"><img src="{{ asset('test/img/gallery/7.jpg') }}" alt=""></a>
-                <a href="{{ asset('test/img/gallery/8.jpg') }}" class="venobox" data-gall="gallery-carousel"><img src="{{ asset('test/img/gallery/8.jpg') }}" alt=""></a>
+                {% if galleries %}
+                    {% for gallery in galleries %}
+                        <a href="{{ vich_uploader_asset(gallery, 'imageFile') }}" class="venobox" data-gall="gallery-carousel">
+                            <img src="{{ vich_uploader_asset(gallery, 'imageFile') }}" alt="{{ gallery.imageName }}">
+                        </a>
+                    {% endfor %}
+                {% else %}
+                    <a href="{{ asset('test/img/gallery/1.jpg') }}" class="venobox" data-gall="gallery-carousel"><img src="{{ asset('test/img/gallery/1.jpg') }}" alt=""></a>
+                    <a href="{{ asset('test/img/gallery/2.jpg') }}" class="venobox" data-gall="gallery-carousel"><img src="{{ asset('test/img/gallery/2.jpg') }}" alt=""></a>
+                    <a href="{{ asset('test/img/gallery/3.jpg') }}" class="venobox" data-gall="gallery-carousel"><img src="{{ asset('test/img/gallery/3.jpg') }}" alt=""></a>
+                    <a href="{{ asset('test/img/gallery/4.jpg') }}" class="venobox" data-gall="gallery-carousel"><img src="{{ asset('test/img/gallery/4.jpg') }}" alt=""></a>
+                    <a href="{{ asset('test/img/gallery/5.jpg') }}" class="venobox" data-gall="gallery-carousel"><img src="{{ asset('test/img/gallery/5.jpg') }}" alt=""></a>
+                    <a href="{{ asset('test/img/gallery/6.jpg') }}" class="venobox" data-gall="gallery-carousel"><img src="{{ asset('test/img/gallery/6.jpg') }}" alt=""></a>
+                    <a href="{{ asset('test/img/gallery/7.jpg') }}" class="venobox" data-gall="gallery-carousel"><img src="{{ asset('test/img/gallery/7.jpg') }}" alt=""></a>
+                    <a href="{{ asset('test/img/gallery/8.jpg') }}" class="venobox" data-gall="gallery-carousel"><img src="{{ asset('test/img/gallery/8.jpg') }}" alt=""></a>
+                {% endif %}
+
             </div>
 
         </section>

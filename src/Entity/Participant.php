@@ -6,6 +6,7 @@ namespace App\Entity;
 use App\Repository\ParticipantRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -133,6 +134,8 @@ class Participant implements UserInterface
     {
 
     }
+
+
 
     public function getId(): ?int
     {
@@ -271,7 +274,7 @@ class Participant implements UserInterface
 
     public function getPassword()
     {
-        return $this->getPassword();
+        return $this->getHash();
     }
 
     public function getRoles()

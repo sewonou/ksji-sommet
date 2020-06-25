@@ -29,6 +29,11 @@ class Country
      */
     private $users;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $password;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
@@ -85,5 +90,17 @@ class Country
    public function __toString()
    {
        return $this->name;
+   }
+
+   public function getPassword(): ?string
+   {
+       return $this->password;
+   }
+
+   public function setPassword(?string $password): self
+   {
+       $this->password = $password;
+
+       return $this;
    }
 }

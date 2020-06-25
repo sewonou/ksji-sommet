@@ -32,16 +32,20 @@
     </head>
 
     <body>
-        {{ include('partials/header.html.twig') }}
         {% for label, messages in app.flashes %}
-            <div class="container">
-                <div class="alert alert-{{ label }}">
-                    {% for message in messages %}
-                        <p>{{ message | raw }}</p>
-                    {% endfor %}
+            <div class="row">
+                <div class="col-lg-4 left">
+                    <div class="alert alert-{{ label }} alert-dismissable mt-5 " style="z-index: 9999 !important;">
+                        {% for message in messages %}
+                            <p>{{ message | raw }}</p>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
+
         {% endfor %}
+        {{ include('partials/header.html.twig') }}
+
         {% block body %}{% endblock %}
         {{ include('partials/footer.html.twig') }}
         <!-- JavaScript Libraries -->

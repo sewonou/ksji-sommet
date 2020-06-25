@@ -76,12 +76,18 @@ class User implements UserInterface
      */
     private $dayEvents;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Gallery::class, mappedBy="author")
+     */
+    private $galeries;
+
     public function __construct()
     {
         $this->userRoles = new ArrayCollection();
         $this->faqs = new ArrayCollection();
         $this->contents = new ArrayCollection();
         $this->dayEvents = new ArrayCollection();
+        $this->galeries = new ArrayCollection();
     }
 
     /**
@@ -324,4 +330,36 @@ class User implements UserInterface
 
         return $this;
     }
+
+    /**
+     * @return Collection|Gallery[]
+     */
+    public function getGaleries(): Collection
+    {
+        return $this->galeries;
+    }
+
+    public function addGalery(Gallery $galery): self
+    {
+        if (!$this->galeries->contains($galery)) {
+            $this->galeries[] = $galery;
+            $galery->setAuthor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeGalery(Gallery $galery): self
+    {
+        if ($this->galeries->contains($galery)) {
+            $this->galeries->removeElement($galery);
+            // set the owning side to null (unless already changed)
+            if ($galery->getAuthor() === $this) {
+                $galery->setAuthor(null);
+            }
+        }
+
+        return $this;
+    }
+
 }
