@@ -7,8 +7,8 @@
             <h1 class="mb-2 pb-0"><span>8<sup>th</sup> West African Summit</span></h1>
             <img src="{{ asset('img/logo.jpeg') }}" alt="" class="avatar avatar-big mb-2">
 
-            <h3 class="mb-4 pb-0" style="background-color: #ed4b91; font-weight: bold;">Thème : La confiance : Une dymanique de la vie au quotidien</h3>
-            <h3 class="mb-4 pb-0" style="background-color: #ed4b91; font-weight: bold;">Theme: Confidence: A dynamic of everyday life</h3>
+            <h3 class="mb-4 pb-0" style="background-color: #ed4b91; font-weight: bold;">Thème : L'Espérance : Une dymanique de la vie au quotidien</h3>
+            <h3 class="mb-4 pb-0" style="background-color: #ed4b91; font-weight: bold;">Theme: Hope: A dynamic of everyday life</h3>
 
             <a href="{{ path('registration') }}" class="about-btn">Register</a>
         </div>
@@ -122,11 +122,11 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-4">
+                    <div class="col-lg-4 mb-2">
                         <div class="card mb-5 mb-lg-0">
                             <div class="card-body">
                                 <h5 class="card-title text-muted text-uppercase text-center">Standard Access</h5>
-                                <h6 class="card-price text-center">$65</h6>
+                                <h6 class="card-price text-center">$100</h6>
                                 <hr>
                                 <ul class="fa-ul">
                                     <li>The costs of participation in the meeting. must be payed in your local or grand commandery.</li>
@@ -142,7 +142,7 @@
                     </div>
                     {% if hotels is defined %}
                         {% for hotel in hotels %}
-                        <div class="col-lg-4">
+                        <div class="col-lg-4 mb-2">
                             <div class="card mb-5 mb-lg-0">
                                 <div class="card-body">
                                     <h5 class="card-title text-muted text-uppercase text-center">{{ hotel.name}}</h5>
@@ -295,8 +295,8 @@
             <div class="container">
 
                 <div class="section-header">
-                    <h2>Nous contacter</h2>
-                    <p>Vpus voulez plus d'informations? Ecrivez nous directement !</p>
+                    <h2>Contact Us</h2>
+                    <p>Do you want more information? Write to us directly !</p>
                 </div>
 
                 <div class="row contact-info">
@@ -304,8 +304,8 @@
                     <div class="col-md-4">
                         <div class="contact-address">
                             <i class="ion-ios-location-outline"></i>
-                            <h3>Adresse </h3>
-                            <address>Lomé, Togo - Doumasséssé - Tokoin Kisito, non loin de l'église catholique</address>
+                            <h3>Adress </h3>
+                            <address>Lomé, Togo - Doumasséssé - Tokoin Kisito, not far from the Catholic Church</address>
                         </div>
                     </div>
 
@@ -330,27 +330,30 @@
                 <div class="form">
                     <div id="sendmessage">Votre message, s'il vous plait</div>
                     <div id="errormessage"></div>
+
+                   <!-- /.contact-form-one__form -->
                     <form action="" method="post" role="form" class="contactForm">
+                        {{ form_start(form, {'attr': {'class': 'contactForm'}}) }}
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                {{ form_widget(form.name) }}
                                 <div class="validation"></div>
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                                {{ form_widget(form.email) }}
                                 <div class="validation"></div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                            {{ form_widget(form.subject) }}
                             <div class="validation"></div>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                            {{ form_widget(form.message) }}
                             <div class="validation"></div>
                         </div>
-                        <div class="text-center"><button type="submit">Envoyer le message</button></div>
-                    </form>
+                        <div class="text-center"><button type="submit">Send Message</button></div>
+                        {{ form_end(form) }}
                 </div>
 
             </div>

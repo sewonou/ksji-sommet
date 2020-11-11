@@ -114,7 +114,7 @@ class ParticipantType extends ApplicationType
                 $this->getConfiguration('Hotel', "Sélectionner un hotel  ..", [
                     'class' => Hotel::class,
                     'placeholder' => "Sélectionner un hotel de résidence ...",
-                    'choice_label' => 'name',
+                    'choice_label' => 'completeName',
                     'required' => false,
                 ]))
 

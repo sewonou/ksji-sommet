@@ -104,6 +104,11 @@ class Hotel
         return $this;
     }
 
+    public function getCompleteName()
+    {
+        return $this->name .' - '. $this->introduction. '($'.$this->price.')';
+    }
+
     /**
      * @return Collection|Participant[]
      */
